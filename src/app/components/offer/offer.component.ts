@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Offer} from '../../Offer';
 
 @Component({
@@ -7,10 +7,17 @@ import {Offer} from '../../Offer';
   styleUrls: ['./offer.component.css']
 })
 export class OfferComponent implements OnInit {
-@Input() offer: Offer;
-  constructor() { }
+  @Input() offer: Offer;
+  @Output() clickEvent: EventEmitter<string> = new EventEmitter();
+
+  constructor() {
+  }
 
 
   ngOnInit(): void {
+  }
+
+  emitToParent() {
+    this.clickEvent.emit(this.offer.name);
   }
 }

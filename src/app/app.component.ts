@@ -34,4 +34,9 @@ export class AppComponent {
       img: 'https://img.freepik.com/darmowe-zdjecie/lustro-z-cieniami-do-powiek-i-szczotkami-na-rozowym-stole_23-2148047056.jpg?size=626&ext=jpg'
     }
   ];
+
+  logName(value: string) {
+    console.log(value);
+
+  }
 }

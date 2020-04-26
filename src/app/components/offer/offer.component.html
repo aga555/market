@@ -7,8 +7,9 @@
       <p>{{offer.date}}</p>
       <p>{{offer.description}}</p>
       <div class="card-img">
-        <img src="{{offer.img}}">
+        <img src="{{offer.img}}" alt="">
       </div>
     </div>
+    <button class="btn btn-dark" (click)="emitToParent()"> Click Me </button>
   </div>
 
