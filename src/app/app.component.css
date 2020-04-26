@@ -1,3 +1,7 @@
+.container{
+  display: flex;
+}
+
 nav {
   background: black;
   color: white;

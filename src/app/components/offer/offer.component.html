@@ -1,8 +1,8 @@
 
 
-  <div  class="card">
-    <div class="card-title">
-      <h3> {{offer.name}}</h3></div>
+  <mat-card>
+    <mat-card-title>
+      <h3> {{offer.name}}</h3></mat-card-title>
     <div class="card-body">
       <p> {{offer.price}}</p>
       <p>{{offer.date}}</p>
@@ -11,6 +11,6 @@
         <img src="{{offer.img}}" alt="">
       </div>
     </div>
-    <button class="btn btn-dark" (click)="emitToParent()"> Click Me </button>
-  </div>
+    <button mat-flat-button color="accent" (click)="emitToParent()"> Click Me </button>
+  </mat-card>
 
