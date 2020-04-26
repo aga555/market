@@ -1,0 +1,26 @@
+nav {
+  background: black;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  margin: 0;
+  display: inline;
+}
+
+body {
+  margin: 0;
+}
+
+ul {
+  margin: 0;
+  display: inline;
+
+}
+li{
+display:inline-block;
+  padding: 20px;
+  float: right;
+}
