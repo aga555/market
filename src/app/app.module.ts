@@ -8,11 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
+import { PriceRangePipe } from './price-range.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
-    OfferComponent
+    OfferComponent,
+    PriceRangePipe
   ],
   imports: [
     BrowserModule,
