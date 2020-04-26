@@ -4,8 +4,8 @@
     <mat-card-title>
       <h3> {{offer.name}}</h3></mat-card-title>
     <div class="card-body">
-      <p> {{offer.price}}</p>
-      <p>{{offer.date}}</p>
+      <p> {{offer.price|currency :'EUR'}}</p>
+      <p>{{offer.date|date}}</p>
       <p>{{offer.description}}</p>
       <div class="card-img">
         <img src="{{offer.img}}" alt="">
