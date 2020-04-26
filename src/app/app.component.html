@@ -7,6 +7,6 @@
 
   </div>
 </nav>
-<div class="container">
-<app-offer></app-offer>
+<div class="container" style="margin-top: 20px">
+<app-offer [offer]="offer"   *ngFor="let offer of offers" ></app-offer>
 </div>
