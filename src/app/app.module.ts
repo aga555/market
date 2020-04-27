@@ -13,13 +13,15 @@ import { LoginComponent } from './components/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
+import { OffersListComponent } from './components/offers-list/offers-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OfferComponent,
     PriceRangePipe,
-    LoginComponent
+    LoginComponent,
+    OffersListComponent
   ],
   imports: [
     BrowserModule,
