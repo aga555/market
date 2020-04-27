@@ -19,7 +19,7 @@ export class LoginService {
   }
 
   logOut() {
-    this.user = undefined;
+    this.user.next(undefined);
   }
 
   getUser(): Observable <User> {
