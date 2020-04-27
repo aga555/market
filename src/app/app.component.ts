@@ -23,10 +23,7 @@ export class AppComponent implements OnInit {
   }
 
 
-  logName(value: string) {
-    console.log(value);
 
-  }
 
   logOut() {
     this.loginService.logOut();

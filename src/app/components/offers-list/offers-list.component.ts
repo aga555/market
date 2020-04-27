@@ -16,5 +16,8 @@ export class OffersListComponent implements OnInit {
   ngOnInit(): void {
     this.offers = this.offerService.getOffers();
   }
+  logName(value: string) {
+    console.log(value);
 
+  }
 }
