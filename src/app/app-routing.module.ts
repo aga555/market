@@ -7,6 +7,11 @@ const routes: Routes = [
   {
     path: 'home',
     component: OffersListComponent
+  },
+  {
+    path: '',
+    pathMatch: 'full',
+    redirectTo: 'home'
   }
 ];
 
