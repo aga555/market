@@ -1,5 +1,5 @@
 <nav>
-  <div class="col-8 offset-2"><h2>My app </h2>
+  <div class="col-8 offset-2"><h2 [routerLink]="['home']">My app </h2>
     <ul>
       <li > add new offer</li>
       <li *ngIf="!user"> login</li>
@@ -8,8 +8,8 @@
 
   </div>
 </nav>
-<app-login></app-login>
+
 <div class="container" style="margin-top: 20px">
 
-<app-offers-list></app-offers-list>
+<router-outlet></router-outlet>
 </div>
