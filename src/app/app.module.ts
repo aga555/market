@@ -9,12 +9,17 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import { PriceRangePipe } from './price-range.pipe';
+import { LoginComponent } from './components/login/login.component';
+import {MatFormFieldModule} from '@angular/material/form-field';
+import {MatInputModule} from '@angular/material/input';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     OfferComponent,
-    PriceRangePipe
+    PriceRangePipe,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -22,7 +27,10 @@ import { PriceRangePipe } from './price-range.pipe';
     BrowserAnimationsModule,
     MatProgressSpinnerModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatFormFieldModule,
+    MatInputModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

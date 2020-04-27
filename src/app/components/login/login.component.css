@@ -1,0 +1,12 @@
+mat-card{
+  overflow: auto;
+  margin-top: 30px;
+}
+
+.loginButtons{
+width: 100%;
+
+}
+.mat-form-field{
+  width: 100%;
+}

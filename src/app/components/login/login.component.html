@@ -1,0 +1,13 @@
+<mat-card class="col-6 offset-3">
+  <h2> Login </h2>
+  <mat-form-field color="accent">
+    <input  [(ngModel)]="username" matInput placeholder="username">
+  </mat-form-field>
+ <mat-form-field color="accent">
+   <input   [(ngModel)]="password" matInput placeholder="password" type="password">
+ </mat-form-field>
+<div class="loginButtons">
+  <button mat-flat-button color="accent" (click)="login()">Login</button>
+  <button mat-flat-button color="warn" (click)="cancel()"> Cancel </button>
+  </div>
+</mat-card>
