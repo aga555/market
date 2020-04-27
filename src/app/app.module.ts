@@ -14,6 +14,7 @@ import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import { OffersListComponent } from './components/offers-list/offers-list.component';
+import { NotFoundComponent } from './components/not-found/not-found.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { OffersListComponent } from './components/offers-list/offers-list.compon
     OfferComponent,
     PriceRangePipe,
     LoginComponent,
-    OffersListComponent
+    OffersListComponent,
+    NotFoundComponent
   ],
   imports: [
     BrowserModule,
