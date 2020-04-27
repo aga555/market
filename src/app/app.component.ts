@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from './Offer';
 import {OfferService} from './services/offer.service';
+import {LoginService} from './services/login.service';
+import {User} from './User';
 
 
 @Component({
@@ -10,12 +12,16 @@ import {OfferService} from './services/offer.service';
 })
 export class AppComponent implements OnInit {
   offers: Offer [];
+  user: User;
 
-  constructor(private offerService: OfferService) {
+  constructor(private offerService: OfferService,
+              private loginService: LoginService) {
   }
 
   ngOnInit(): void {
     this.offers = this.offerService.getOffers();
+    this.user = this.loginService.getUser();
+
   }
 
   logName(value: string) {

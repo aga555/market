@@ -1,8 +1,9 @@
 <nav>
   <div class="col-8 offset-2"><h2>My app </h2>
     <ul>
-      <li> add new offer</li>
-      <li> login</li>
+      <li > add new offer</li>
+      <li *ngIf="!user"> login</li>
+      <li *ngIf="user"> {{user.username}}</li>
     </ul>
 
   </div>
