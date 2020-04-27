@@ -20,12 +20,16 @@ export class AppComponent implements OnInit {
 
   ngOnInit(): void {
     this.offers = this.offerService.getOffers();
-    this.user = this.loginService.getUser();
-
+    this.loginService.getUser().subscribe((user: User) => {
+      this.user = user;
+    });
   }
 
-  logName(value: string) {
-    console.log(value);
 
-  }
+
+logName(value: string)
+{
+  console.log(value);
+
+}
 }

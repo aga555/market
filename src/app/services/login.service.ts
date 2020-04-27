@@ -1,19 +1,20 @@
 import {Injectable} from '@angular/core';
 import {User} from '../User';
+import {BehaviorSubject, Observable} from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
-  user: User;
+  user: BehaviorSubject<User> = new BehaviorSubject(undefined);
 
   constructor() {
   }
 
   logIn(username: string, password: string) {
     if (username && password) {
-      this.user = new User(username, password);
-      console.log('user:' + this.user.username);
+      this.user.next(new User(username, password));
+
     }
   }
 
@@ -21,7 +22,7 @@ export class LoginService {
     this.user = undefined;
   }
 
-  getUser(): User {
+  getUser(): Observable <User> {
     return this.user;
   }
 }
