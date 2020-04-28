@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Offer} from '../../Offer';
 import {OfferService} from '../../services/offer.service';
-import {ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, ParamMap} from '@angular/router';
 
 @Component({
   selector: 'app-offer-detail',
@@ -16,8 +16,9 @@ export class OfferDetailComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.offer = this.offerService.getOfferById(+this.activatedRoute.snapshot.paramMap.get('id'));
+    this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+      this.offer = this.offerService.getOfferById(+params.get('id'));
+    });
   }
 
-
-}
+  }

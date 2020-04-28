@@ -6,5 +6,9 @@
   <div class="card-img">
     <img src="{{offer.img}}" alt="">
   </div>
+  <div class="buttons">
+    <button mat-flat-button [routerLink]="['/offer/', offer.id+1]" > next</button>
+    <button mat-flat-button [routerLink]="['/offer/', offer.id-1]" > previous</button>
+  </div>
 </div>
 
