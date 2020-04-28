@@ -12,6 +12,7 @@ export class OfferService {
 
   offers: Offer[] = [
     {
+      id: 1,
       name: 'manicure',
       date: new Date('01/04/2020'),
       price: 150,
@@ -20,6 +21,7 @@ export class OfferService {
     },
 
     {
+      id: 2,
       name: 'photograph',
       date: new Date('02/04/2020'),
       price: 50,
@@ -27,6 +29,7 @@ export class OfferService {
       img: 'https://image.freepik.com/darmowe-zdjecie/widok-z-gory-aparatu-dslr-filizanka-herbaty-notes-spiralny-dlugopis-obiektyw-aparatu-i-torba-na-drewnianym-stole_23-2148038885.jpg'
     },
     {
+      id: 3,
       name: 'makeup ',
       date: new Date('02/04/2020'),
       price: 250,
@@ -35,6 +38,7 @@ export class OfferService {
     }
     ,
     {
+      id: 4,
       name: 'hair styling ',
       date: new Date('02/04/2020'),
       price: 20,
@@ -42,6 +46,7 @@ export class OfferService {
       img: 'https://image.freepik.com/darmowe-zdjecie/zblizenie-stylista-ciecia-koncowki-wlosow_23-2147769835.jpg'
     },
     {
+      id: 5,
       name: 'personal trainer ',
       date: new Date('03/04/2020'),
       price: 120,
@@ -50,6 +55,7 @@ export class OfferService {
     }
     ,
     {
+      id: 0,
       name: 'florist ',
       date: new Date('03/04/2020'),
       price: 20,
@@ -61,6 +67,10 @@ export class OfferService {
 
   getOffers() {
     return this.offers;
+  }
+
+  getOfferById(id: number) {
+    return this.offers.find(offer => offer.id === id);
   }
 
 

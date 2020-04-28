@@ -21,7 +21,7 @@ const routes: Routes = [
     component: AddOfferComponent
   },
   {
-    path: 'offer',
+    path: 'offer/:id',
     component: OfferDetailComponent
   },
   {

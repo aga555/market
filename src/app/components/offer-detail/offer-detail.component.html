@@ -1,1 +1,10 @@
-<p>offer-detail works!</p>
+<h3> {{offer.name}}</h3>
+<div class="card-body">
+  <p> {{offer.price|currency}}</p>
+  <p>{{offer.date|date}}</p>
+  <p>{{offer.description}}</p>
+  <div class="card-img">
+    <img src="{{offer.img}}" alt="">
+  </div>
+</div>
+
