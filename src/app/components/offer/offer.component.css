@@ -1,15 +1,33 @@
-h3{
+h3 {
   text-transform: uppercase;
   letter-spacing: 2px;
   font-size: 20px;
 
 }
-mat-card{
+
+mat-card {
   padding: 10px;
   margin: 15px;
- max-width: 400px;
+  max-width: 400px;
 
 }
-.card-img img{
+
+.card-img img {
   max-width: 100%;
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  cursor: pointer;
+  background:#eeddee;
+  opacity: 0;
+  transition: 0.3s;
+}
+.overlay:hover{
+  opacity: 0.3;
 }
