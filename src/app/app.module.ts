@@ -12,7 +12,7 @@ import { PriceRangePipe } from './price-range.pipe';
 import { LoginComponent } from './components/login/login.component';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { OffersListComponent } from './components/offers-list/offers-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddOfferComponent } from './components/add-offer/add-offer.component';
@@ -38,7 +38,8 @@ import { OfferDetailComponent } from './components/offer-detail/offer-detail.com
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

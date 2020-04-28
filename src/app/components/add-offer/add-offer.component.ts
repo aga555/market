@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
+import {FormControl, FormGroup} from '@angular/forms';
 
 @Component({
   selector: 'app-add-offer',
@@ -6,8 +7,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./add-offer.component.css']
 })
 export class AddOfferComponent implements OnInit {
+  offerForm: FormGroup;
 
-  constructor() { }
+  constructor() {
+    this.offerForm = new FormGroup({
+      name: new FormControl(),
+      price: new FormControl(),
+      date: new FormControl(),
+      description: new FormControl(),
+      img: new FormControl(),
+
+    });
+  }
 
   ngOnInit(): void {
   }
