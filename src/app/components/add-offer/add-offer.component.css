@@ -1,0 +1,16 @@
+.add-offer-form{
+  overflow: auto;
+  display: grid;
+}
+h2{
+  text-align: center;
+  text-transform: uppercase;
+}
+form{
+  width:400px;
+  margin: 0 auto;
+
+}
+.mat-form-field{
+  width: 100%;
+}

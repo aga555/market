@@ -1,1 +1,29 @@
-<p>add-offer works!</p>
+<mat-card style="width: 800px">
+  <h2> Add new offer </h2>
+  <form class=" add-offer-form">
+    <mat-form-field color="primary">
+      <input matInput placeholder="name">
+    </mat-form-field>
+
+    <mat-form-field color="primary">
+      <input matInput placeholder="price" type="number">
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input matInput placeholder="date" type="Date">
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <input matInput placeholder="img url">
+    </mat-form-field>
+    <mat-form-field color="primary">
+      <label>
+        <textarea placeholder="description" matInput ></textarea>
+      </label>
+    </mat-form-field>
+  </form>
+  <div class="button-container">
+    <button mat-flat-button color="primary"> Save</button>
+    <button mat-flat-button color="warn"> cancel</button>
+  </div>
+
+</mat-card>
+
