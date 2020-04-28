@@ -10,14 +10,11 @@ import {Offer} from '../../Offer';
 export class OffersListComponent implements OnInit {
 
   offers: Offer [];
+
   constructor(private  offerService: OfferService) {
   }
 
   ngOnInit(): void {
     this.offers = this.offerService.getOffers();
-  }
-  logName(value: string) {
-    console.log(value);
-
   }
 }

@@ -17,7 +17,5 @@ export class OfferComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  emitToParent() {
-    this.clickEvent.emit(this.offer.name);
-  }
 }
+
