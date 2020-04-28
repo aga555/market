@@ -1,5 +1,5 @@
-<mat-card>
-  <mat-card-title>
+<mat-card [routerLink]="['/offer']">
+  <mat-card-title >
     <h3> {{offer.name}}</h3></mat-card-title>
   <div class="card-body">
     <p> {{offer.price|priceRange:5}}</p>
@@ -10,7 +10,7 @@
     </div>
   </div>
   <div class="overlay">
-    
+
   </div>
 </mat-card>
 

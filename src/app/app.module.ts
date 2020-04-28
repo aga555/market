@@ -16,6 +16,7 @@ import {FormsModule} from '@angular/forms';
 import { OffersListComponent } from './components/offers-list/offers-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddOfferComponent } from './components/add-offer/add-offer.component';
+import { OfferDetailComponent } from './components/offer-detail/offer-detail.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { AddOfferComponent } from './components/add-offer/add-offer.component';
     LoginComponent,
     OffersListComponent,
     NotFoundComponent,
-    AddOfferComponent
+    AddOfferComponent,
+    OfferDetailComponent
   ],
   imports: [
     BrowserModule,

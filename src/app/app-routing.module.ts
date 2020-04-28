@@ -4,6 +4,7 @@ import {OffersListComponent} from './components/offers-list/offers-list.componen
 import {NotFoundComponent} from './components/not-found/not-found.component';
 import {LoginComponent} from './components/login/login.component';
 import {AddOfferComponent} from './components/add-offer/add-offer.component';
+import {OfferDetailComponent} from './components/offer-detail/offer-detail.component';
 
 
 const routes: Routes = [
@@ -18,6 +19,10 @@ const routes: Routes = [
   {
     path: 'offer/add',
     component: AddOfferComponent
+  },
+  {
+    path: 'offer',
+    component: OfferDetailComponent
   },
   {
     path: '',
