@@ -73,5 +73,9 @@ export class OfferService {
     return this.offers.find(offer => offer.id === id);
   }
 
+  addOffer(offer: Offer) {
+    offer.id = this.offers.length;
+    this.offers.push(offer);
+  }
 
 }

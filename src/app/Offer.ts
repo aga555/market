@@ -4,7 +4,7 @@ export class Offer {
   description: string;
   price: number;
   img: string;
-  id: number;
+  id?: number;
 
 
 }
