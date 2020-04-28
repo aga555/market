@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup} from '@angular/forms';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-add-offer',
@@ -12,7 +12,7 @@ export class AddOfferComponent implements OnInit {
   constructor() {
     this.offerForm = new FormGroup({
       name: new FormControl(),
-      price: new FormControl(),
+      price: new FormControl('',[Validators.required]),
       date: new FormControl(),
       description: new FormControl(),
       img: new FormControl(),

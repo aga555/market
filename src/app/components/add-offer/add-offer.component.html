@@ -2,11 +2,12 @@
   <h2> Add new offer </h2>
   <form class=" add-offer-form" [formGroup]="offerForm">
     <mat-form-field color="primary">
-      <input matInput placeholder="name" formControlName="name">
+      <input matInput placeholder="name" formControlName="name"  >
+
     </mat-form-field>
 
     <mat-form-field color="primary">
-      <input matInput placeholder="price" type="number" formControlName="price">
+      <input matInput placeholder="price" type="number" formControlName="price" >
     </mat-form-field>
     <mat-form-field color="primary">
       <input matInput placeholder="date" type="Date" formControlName="date">
@@ -21,9 +22,13 @@
     </mat-form-field>
   </form>
   <div class="button-container">
-    <button mat-flat-button color="primary"> Save</button>
+    <button mat-flat-button color="primary" [disabled]="!offerForm.valid"> Save</button>
     <button mat-flat-button color="warn"> cancel</button>
   </div>
-{{offerForm.value|json}}
+
 </mat-card>
 
+{{offerForm.value|json}}
+{{'valid +'+ offerForm.valid}}
+{{'dirty +'+ offerForm.dirty}}
+{{'tuched +'+ offerForm.touched}}
