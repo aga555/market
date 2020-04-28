@@ -15,6 +15,7 @@ import {MatInputModule} from '@angular/material/input';
 import {FormsModule} from '@angular/forms';
 import { OffersListComponent } from './components/offers-list/offers-list.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { AddOfferComponent } from './components/add-offer/add-offer.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     PriceRangePipe,
     LoginComponent,
     OffersListComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    AddOfferComponent
   ],
   imports: [
     BrowserModule,

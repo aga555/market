@@ -1,8 +1,8 @@
 <nav>
   <div class="col-8 offset-2"><h2 [routerLink]="['home']">My app </h2>
     <ul>
-      <li > add new offer</li>
-      <li *ngIf="!user"> login</li>
+      <li [routerLink]="['offer', 'add']"> add new offer</li>
+      <li *ngIf="!user" [routerLink]="['login']"> login</li>
       <li *ngIf="user" (click)="logOut()"> logout  {{user.username}}</li>
     </ul>
 
