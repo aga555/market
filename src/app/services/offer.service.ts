@@ -75,7 +75,9 @@ export class OfferService {
 
   addOffer(offer: Offer) {
     offer.id = this.offers.length;
+    offer.date = new Date();
     this.offers.push(offer);
+
   }
 
 }

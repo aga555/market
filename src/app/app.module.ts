@@ -17,6 +17,8 @@ import { OffersListComponent } from './components/offers-list/offers-list.compon
 import { NotFoundComponent } from './components/not-found/not-found.component';
 import { AddOfferComponent } from './components/add-offer/add-offer.component';
 import { OfferDetailComponent } from './components/offer-detail/offer-detail.component';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {HttpClientModule} from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,9 @@ import { OfferDetailComponent } from './components/offer-detail/offer-detail.com
     MatFormFieldModule,
     MatInputModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatGridListModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

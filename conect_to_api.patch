@@ -1,0 +1,188 @@
+Index: src/app/services/offer.service.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/services/offer.service.ts	(revision de4b98aab03541eb5c96a6492cf22bd4ccfe4a02)
++++ src/app/services/offer.service.ts	(date 1588106584471)
+@@ -1,5 +1,7 @@
+ import {Injectable} from '@angular/core';
+ import {Offer} from '../Offer';
++import {HttpClient} from '@angular/common/http';
++import {Observable} from 'rxjs';
+ 
+ @Injectable({
+   providedIn: 'root'
+@@ -7,75 +9,20 @@
+ export class OfferService {
+ 
+ 
+-  constructor() {
++  constructor(private http: HttpClient) {
+   }
+ 
+-  offers: Offer[] = [
+-    {
+-      id: 1,
+-      name: 'manicure',
+-      date: new Date('01/04/2020'),
+-      price: 150,
+-      description: 'perfect manicure for everyone',
+-      img: 'https://img.freepik.com/darmowe-zdjecie/kobiet-reki-i-kwiaty-z-kopii-przestrzenia_23-2148226454.jpg?size=626&ext=jpg'
+-    },
+ 
+-    {
+-      id: 2,
+-      name: 'photograph',
+-      date: new Date('02/04/2020'),
+-      price: 50,
+-      description: 'weeding photography,  business photo',
+-      img: 'https://image.freepik.com/darmowe-zdjecie/widok-z-gory-aparatu-dslr-filizanka-herbaty-notes-spiralny-dlugopis-obiektyw-aparatu-i-torba-na-drewnianym-stole_23-2148038885.jpg'
+-    },
+-    {
+-      id: 3,
+-      name: 'makeup ',
+-      date: new Date('02/04/2020'),
+-      price: 250,
+-      description: 'make up artist',
+-      img: 'https://img.freepik.com/darmowe-zdjecie/lustro-z-cieniami-do-powiek-i-szczotkami-na-rozowym-stole_23-2148047056.jpg?size=626&ext=jpg'
+-    }
+-    ,
+-    {
+-      id: 4,
+-      name: 'hair styling ',
+-      date: new Date('02/04/2020'),
+-      price: 20,
+-      description: 'professional hair cut',
+-      img: 'https://image.freepik.com/darmowe-zdjecie/zblizenie-stylista-ciecia-koncowki-wlosow_23-2147769835.jpg'
+-    },
+-    {
+-      id: 5,
+-      name: 'personal trainer ',
+-      date: new Date('03/04/2020'),
+-      price: 120,
+-      description: ' weight loose, body muscle, professional  personal trainer',
+-      img: 'https://image.freepik.com/darmowe-zdjecie/srednio-strzal-kobieta-rozciaganie-z-miejsca-na-kopie_23-2148267333.jpg'
+-    }
+-    ,
+-    {
+-      id: 0,
+-      name: 'florist ',
+-      date: new Date('03/04/2020'),
+-      price: 20,
+-      description: ' flowers for events',
+-      img: 'https://image.freepik.com/darmowe-zdjecie/ladna-kwiaciarnia-pozuje-z-bukietem_23-2147762236.jpg'
+-    }
++  getOffers(): Observable<Offer[]> {
++    return this.http.get<Offer[]>('http://localhost:8080/api/values');
++  }
+ 
+-  ];
+-
+-  getOffers() {
+-    return this.offers;
+-  }
+-
+-  getOfferById(id: number) {
+-    return this.offers.find(offer => offer.id === id);
++  getOfferById(id: number): Observable<Offer> {
++    return this.http.get<Offer>('http://localhost:8080/api/values' + id);
+   }
+ 
+   addOffer(offer: Offer) {
+-    offer.id = this.offers.length;
+-    this.offers.push(offer);
++    this.http.post('http://localhost:8080/api/values', offer);
+   }
+ 
+ }
+Index: src/app/components/offer-detail/offer-detail.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/components/offer-detail/offer-detail.component.ts	(revision de4b98aab03541eb5c96a6492cf22bd4ccfe4a02)
++++ src/app/components/offer-detail/offer-detail.component.ts	(date 1588106821760)
+@@ -17,8 +17,10 @@
+ 
+   ngOnInit(): void {
+     this.activatedRoute.paramMap.subscribe((params: ParamMap) => {
+-      this.offer = this.offerService.getOfferById(+params.get('id'));
++      this.offerService.getOfferById(+params.get('id')).subscribe((value: Offer) => {
++        this.offer = value;
++      });
+     });
+   }
+ 
+-  }
++}
+Index: src/app/components/offers-list/offers-list.component.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/components/offers-list/offers-list.component.ts	(revision de4b98aab03541eb5c96a6492cf22bd4ccfe4a02)
++++ src/app/components/offers-list/offers-list.component.ts	(date 1588106734441)
+@@ -15,6 +15,8 @@
+   }
+ 
+   ngOnInit(): void {
+-    this.offers = this.offerService.getOffers();
++    this.offerService.getOffers().subscribe((value: Offer[]) => {
++      this.offers = value;
++    });
+   }
+ }
+Index: src/app/app.module.ts
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/app/app.module.ts	(revision de4b98aab03541eb5c96a6492cf22bd4ccfe4a02)
++++ src/app/app.module.ts	(date 1588106125956)
+@@ -1,22 +1,23 @@
+-import { BrowserModule } from '@angular/platform-browser';
+-import { NgModule } from '@angular/core';
++import {BrowserModule} from '@angular/platform-browser';
++import {NgModule} from '@angular/core';
+ 
+-import { AppRoutingModule } from './app-routing.module';
+-import { AppComponent } from './app.component';
+-import { OfferComponent } from './components/offer/offer.component';
+-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
++import {AppRoutingModule} from './app-routing.module';
++import {AppComponent} from './app.component';
++import {OfferComponent} from './components/offer/offer.component';
++import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+ import {MatButtonModule} from '@angular/material/button';
+ import {MatCardModule} from '@angular/material/card';
+-import { PriceRangePipe } from './price-range.pipe';
+-import { LoginComponent } from './components/login/login.component';
++import {PriceRangePipe} from './price-range.pipe';
++import {LoginComponent} from './components/login/login.component';
+ import {MatFormFieldModule} from '@angular/material/form-field';
+ import {MatInputModule} from '@angular/material/input';
+ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+-import { OffersListComponent } from './components/offers-list/offers-list.component';
+-import { NotFoundComponent } from './components/not-found/not-found.component';
+-import { AddOfferComponent } from './components/add-offer/add-offer.component';
+-import { OfferDetailComponent } from './components/offer-detail/offer-detail.component';
++import {OffersListComponent} from './components/offers-list/offers-list.component';
++import {NotFoundComponent} from './components/not-found/not-found.component';
++import {AddOfferComponent} from './components/add-offer/add-offer.component';
++import {OfferDetailComponent} from './components/offer-detail/offer-detail.component';
++import {HttpClientModule} from '@angular/common/http';
+ 
+ @NgModule({
+   declarations: [
+@@ -39,7 +40,8 @@
+     MatFormFieldModule,
+     MatInputModule,
+     FormsModule,
+-    ReactiveFormsModule
++    ReactiveFormsModule,
++    HttpClientModule
+   ],
+   providers: [],
+   bootstrap: [AppComponent]
